@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OPCUAMachineAdapterConfig>
+	<OPCUAClientConfig>
+		<AppName>PredixMachine_OPCUAAdapter</AppName>
+<!-- CHANGE The ServerURI -->
+		<ServerUri>opc.tcp://localhost:4841</ServerUri>
+		<AppUri>urn:localhost:UA:PredixMachine_OPCUAAdapter</AppUri>
+		<ProductUri>urn:ge.com:UA:PredixMachine_OPCUAAdapter</ProductUri>
+	</OPCUAClientConfig>
+	<DataNodeConfigs>
+<!-- REMOVE THIS LINE
+         <DataNode>
+                 <Name>Node 1</Name>
+                 <StringId>2:Demo.SimulationSpeed</StringId>
+         </DataNode>
+         <DataNode>
+                 <Name>Node 2</Name>
+                 <StringId>2:Demo.Dynamic.Scalar.Int32</StringId>
+         </DataNode>
+         <DataNode>
+                 <Name>New_Node 1</Name>
+                 <StringId>2:Demo.Massfolder_Dynamic.Variable0009</StringId>
+         </DataNode>
+REMOVE THIS LINE -->
+	</DataNodeConfigs>
+	<DataSubscriptionConfigs>
+<!-- REMOVE THIS LINE
+        <DataSubscriptionConfig>
+                <Name>OPCUA_Subscription_1</Name>    
+                <PublishingInterval>1000</PublishingInterval>
+                <DataNode>
+                        <Name>Node 1</Name>
+                </DataNode>
+                <DataNode>
+                        <Name>Node 2</Name>
+                </DataNode>
+        </DataSubscriptionConfig>
+        <DataSubscriptionConfig>
+                <Name>OPCUA_Subscription_2</Name>
+                <PublishingInterval>1500</PublishingInterval>
+                <DataNode>
+                        <Name>New_Node 1</Name>
+                </DataNode>
+        </DataSubscriptionConfig>
+REMOVE THIS LINE -->
+	</DataSubscriptionConfigs>
+</OPCUAMachineAdapterConfig>

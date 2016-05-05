@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<modbusMachineAdapterConfig>
+    <name>Onsite monitor modbus nodes</name>
+    <description>Onsite monitor modbus nodes</description>
+ 
+    <dataNodeConfigs>
+
+       <channel protocol="TCP_IP" tcpIpAddress="192.168.1.113" tcpIpPort="502">
+            <unit id="1">
+                <register name="vara-home-stove" dataType="INTEGER" address="10" registerType="HOLDING" description="gas level"/>
+                <!-- <register name="Node-1-2" dataType="DECIMAL" address="11" registerType="HOLDING" description="pressure"/> -->
+            </unit>
+           <!-- <unit id="2">
+                <register name="Node-2-1" dataType="INTEGER" address="20" registerType="HOLDING" description="temperature"/>
+                <register name="Node-2-2" dataType="INTEGER" address="21" registerType="HOLDING" description="pressure"/>
+            </unit> -->
+        </channel>
+
+<!-- REMOVE THIS LINE FOR SERIAL
+        <channel protocol="SERIAL" encoding="RTU" portName="COM1" baudRate="9600" parity="NONE">
+            <unit id="3">
+                <register name="Node-3-1" dataType="INTEGER" address="30" registerType="HOLDING" description="temperature"/>
+                <register name="Node-3-2" dataType="INTEGER" address="31" registerType="HOLDING" description="pressure"/>
+            </unit>
+            <unit id="4">
+                <register name="Node-4-1" dataType="INTEGER" address="40" registerType="INPUT" description="temperature"/>
+                <register name="Node-4-2" dataType="INTEGER" address="41" registerType="INPUT" description="pressure"/>
+            </unit>
+        </channel>
+REMOVE THIS LINE -->
+    </dataNodeConfigs>
+ 
+ 	<!-- Both updateInterval and startPointOffset are in seconds. If startPointOffset == -1, it will start immediately -->
+    <dataSubscriptionConfigs>
+        <dataSubscriptionConfig name="Temperature_Subscription" updateInterval="2" startPointUnit="MINUTES" startPointOffset="10">
+            <!-- <nodeName>Node-2-1</nodeName> -->
+            <nodeName>vara-home-stove</nodeName>
+        </dataSubscriptionConfig>
+<!-- REMOVE THIS LINE FOR SERIAL
+        <dataSubscriptionConfig name="Pressure_Subscription" updateInterval="3600" startPointUnit="HOURS" startPointOffset="600">
+            <nodeName>Node-3-2</nodeName>
+            <nodeName>Node-4-2</nodeName>
+        </dataSubscriptionConfig>
+REMOVE THIS LINE -->
+    </dataSubscriptionConfigs>
+ 
+ </modbusMachineAdapterConfig>
